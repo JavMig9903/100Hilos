@@ -1,20 +1,28 @@
 
 public class Hilos extends Thread{
     Callback callback;
+    Callback finished;
     public Hilos(Callback callback){
         this.callback = callback;
+        this.finished = finished;
     }
 
     @Override
     public void run() {
-        int time =(int) (Math.random()*(8000-1000+1)+1000);
-        try{
-            sleep(time);
-            callback.acaba(getName()+" ha dormido por "+time);
-            time = (int) (Math.random()*(6000-2000+1)+2000);
-        }catch (InterruptedException e){
-            e.printStackTrace();
+        final int max=5;
+        final int maxsleep=8000;
+        String iter="";
+        for (int i=0;i<max;i++){
+                int time = (int) (Math.random() * (maxsleep - 1000 + 1) + 1000);
+                try {
+                    sleep(time);
+                    iter=getName()+" ha dormido por "+time;
+                    callback.acaba(iter,(i+1));
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
         }
+        callback.ha_terminau();
     }
 }
 
