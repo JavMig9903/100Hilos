@@ -22,7 +22,7 @@ public class Hilos extends Thread{
                     e.printStackTrace();
                 }
         }
-        callback.ha_terminau();
+        callback.gracias_Carlos();
     }
 }
 

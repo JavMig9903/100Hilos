@@ -35,7 +35,7 @@ public class PpalClass implements Callback {
         }
     }
 
-    public void ha_terminau() {
+    public void gracias_Carlos() {
         num++;
         if(num==maximo) {
             System.out.println("Iteración 1:\n" + it1 + "\nIteración 2:\n" + it2 + "\nIteración 3:\n" + it3 +
